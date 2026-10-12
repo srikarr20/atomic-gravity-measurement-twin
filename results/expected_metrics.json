@@ -1,0 +1,16 @@
+{
+  "dataset": "Exail Bordeaux, Runs 12-20",
+  "calibration_run": 11,
+  "uncertainty_training_runs": [12, 13, 14, 15, 16],
+  "uncertainty_test_runs": [17, 18, 19, 20],
+  "total_shots": 2108,
+  "training_shots": 1200,
+  "test_shots": 908,
+  "acceleration_mae_m_s2": 0.01688328039510654,
+  "detector_r2": 0.9942058887227684,
+  "detector_mae": 0.007431212825617529,
+  "universal_interval_score": 148.500747,
+  "conditioned_interval_score": 117.156474,
+  "interval_score_improvement_pct": 21.10714812030612,
+  "conditioned_outside_count": 55
+}
