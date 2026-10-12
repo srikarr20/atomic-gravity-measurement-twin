@@ -80,18 +80,60 @@ are not required for the proposed initial validation.
 
 ## Reproducibility
 
-Python dependencies:
+The Exail recorded-data benchmark can be reproduced using
+the original publicly released experimental files.
+
+**Dataset:** https://zenodo.org/records/11543715
+
+The original data is not redistributed in this repository.
+
+### Setup
+
+Install dependencies:
 
     pip install -r requirements.txt
 
-The included Exail validation scripts expect:
+Extract the original data under:
 
-    data/processed/exail_waveform_residual_diagnostics.csv
+    data/raw/exail_bordeaux/extracted/Raw Data/Figure 3 & 5/20230317/
 
-The processed input is not distributed here.
-The numerical results above are reported from prior
-local experiments and are not independently reproducible
-from this repository alone.
+Required subdirectories:
+
+- Raman/
+- Streaming/
+
+### Run the complete benchmark
+
+    ./scripts/reproduce_exail.sh
+
+The pipeline performs:
+
+1. Frozen Run-11 calibration evaluation on Runs 12-20.
+2. Acceleration waveform feature extraction.
+3. Uncertainty calibration on Runs 12-16.
+4. Held-out evaluation on Runs 17-20.
+5. Automated verification against frozen reference metrics.
+
+### Expected results
+
+| Metric | Result |
+|---|---:|
+| Total measurements | 2,108 |
+| Training measurements | 1,200 |
+| Held-out measurements | 908 |
+| Detector reconstruction R² | 0.994206 |
+| Universal interval score | 148.500747 |
+| Conditioned interval score | 117.156474 |
+| Interval-score improvement | 21.1071% |
+
+All 11 numerical verification checks passed in the
+original local Exail data environment.
+
+Independent reproduction requires downloading the
+source dataset and running the pipeline.
+
+See [Data Provenance](docs/data_provenance.md)
+for experimental assumptions and limitations.
 
 ## Scientific Boundaries
 
